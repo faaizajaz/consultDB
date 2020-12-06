@@ -37,3 +37,6 @@ class Consultant(models.Model):
     
     # Rating - one to many link with ratings model
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+

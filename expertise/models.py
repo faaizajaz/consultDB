@@ -8,6 +8,10 @@ class PracticeArea(models.Model):
 
     name = models.CharField(verbose_name="Practice area name", max_length=500)
 
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Specialization(models.Model):
     """
     Description: Specialization within a practice area
@@ -15,6 +19,9 @@ class Specialization(models.Model):
 
     name = models.CharField(verbose_name="Specialization name", max_length=500)
     practice_area = models.ForeignKey(PracticeArea, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} in {self.practice_area}'
 
 
 class Skill(models.Model):
@@ -24,3 +31,5 @@ class Skill(models.Model):
 
     name = models.CharField(verbose_name="Skill name", max_length=500)
 
+    def __str__(self):
+        return f'{self.name}'
