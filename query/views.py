@@ -18,12 +18,10 @@ def ConsultantQueryView(request):
 
             if data.get('specializations'):
                 for specialization in data.get('specializations'):
-                    print(specialization)
                     query.add(Q(specializations=specialization), Q.AND)
 
             if data.get('skills'):
                 for skill in data.get('skills'):
-                    print(skill)
                     query.add(Q(skills=skill), Q.AND)
 
             result = Consultant.objects.filter(query)
