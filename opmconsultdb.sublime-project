@@ -9,6 +9,10 @@
 	{
 		"LSP":
 		{
+			"lsp-html":
+			{
+				"enabled": true
+			},
 			"lsp-pyright":
 			{
 				"enabled": true,
