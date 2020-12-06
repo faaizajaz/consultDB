@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'consultant.apps.ConsultantConfig'
+    'consultant.apps.ConsultantConfig',
+    'rating.apps.RatingConfig',
+    'expertise.apps.ExpertiseConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
