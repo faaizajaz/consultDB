@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import query.views as QueryViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('search/', QueryViews.ConsultantQueryView, name='consultant-query')
 ]
