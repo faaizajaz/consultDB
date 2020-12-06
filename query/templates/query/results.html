@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for consultant in result %}
+		<p>
+			<b>{{consultant.first_name}}</b>
+		</p>
+	{% endfor %}
+{% endblock %}
