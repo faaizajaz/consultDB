@@ -1,0 +1,47 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"LSP":
+		{
+			"lsp-pyright":
+			{
+				"enabled": true,
+				"settings":
+				{
+					"python.pythonPath": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python"
+				}
+			},
+			"mspyls":
+			{
+				"enabled": true,
+				"initializationOptions":
+				{
+					"interpreter":
+					{
+						"properties":
+						{
+							"InterpreterPath": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python",
+							"UseDefaultDatabase": true,
+							"Version": "3.8.5"
+						}
+					}
+				}
+			}
+		},
+		"SublimeLinter.linters.pylint.args":
+		[
+			"--load-plugins=pylint_django"
+		],
+		"SublimeLinter.linters.pylint.python": "~/.virtualenvs/opmconsultdb/bin/python",
+		"debug.configurations":
+		[
+		],
+		"python_interpreter": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python"
+	}
+}
