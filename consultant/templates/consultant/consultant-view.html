@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<p>
+			<b>{{consultant.first_name}}</b>
+		</p>
+		<p>
+		<ul>
+			
+		  <li><b>Years of experience: </b>{{consultant.experience_years}}</li>
+		  {% for pa in consultant.practice_areas.all %}
+			<li><b>Practice area: </b>{{pa}}</li>
+		  {% endfor %}
+
+		  {% for spec in consultant.specializations.all %}
+				<li><b>Specialization: </b>{{spec}}</li>
+		  {% endfor %}
+
+		  {% for skill in consultant.skills.all %}
+				<li><b>Skill: </b>{{skill}}</li>
+		  {% endfor %}
+		</ul>
+		
+		</p>
+
+		<p>
+			<b>Reviews from OPM staff</b>
+		</p>
+
+		<p>
+			{% for review in consultant.rating_set.all %}
+				<ul>
+					<li>Rating by: {{review.creator}}</li>
+					<li>Project worked on: {{review.project_code}}</li>
+					<li>Rating (1-5): {{review.star_rating}}</li>
+					<li>Comments: {{review.comment}}</li>
+				</ul>
+			{% endfor %}
+		</p>
+
+
+{% endblock %}

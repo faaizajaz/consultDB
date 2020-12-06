@@ -40,3 +40,8 @@ class Consultant(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse
+
+
