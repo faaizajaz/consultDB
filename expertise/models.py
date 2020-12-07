@@ -21,7 +21,7 @@ class Specialization(models.Model):
     practice_area = models.ForeignKey(PracticeArea, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name} in {self.practice_area}'
+        return f'{self.name} ({self.practice_area})'
 
 
 class Skill(models.Model):
