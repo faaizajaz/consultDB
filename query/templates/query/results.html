@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	{% for consultant in result %}
-		<p>
-			<b><a href="{% url 'consultant-view' consultant_id=consultant.id %}">{{consultant}}</a></b>
-		</p>
-	{% endfor %}
+	{% if result %}
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+		<script type="text/javascript">
+			var consultants = {{ result|safe }};
+		</script>
+
+		<div id="app">
+			<ul>
+				<li v-for="consultant in consultants">
+					[[ consultant.fields ]]
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			var app = new Vue({
+				delimiters: ['[[', ']]'],
+				el: '#app',
+				data: {
+					consultants: consultants
+				}
+			})
+		</script>
+	{% else %}
+		<p>No results</p>
+	{% endif %}
 {% endblock %}
