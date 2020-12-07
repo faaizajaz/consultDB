@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import ConsultantQueryForm
 from django.db.models import Q
 from consultant.models import Consultant
+from django.core import serializers
 
 def ConsultantQueryView(request):
 
@@ -24,7 +25,13 @@ def ConsultantQueryView(request):
                 for skill in data.get('skills'):
                     query.add(Q(skills=skill), Q.AND)
 
-            result = Consultant.objects.filter(query)
+            results_to_serialize = Consultant.objects.filter(query)
+
+            result = serializers.serialize(
+                'json',
+                results_to_serialize,
+                use_natural_foreign_keys=True
+            )
 
             return render(request, 'query/results.html', {'result': result})
 
