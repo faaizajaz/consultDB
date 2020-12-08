@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Consultant
 from django.shortcuts import get_object_or_404
-from .forms import BioForm, PracticeAreaForm, SpecializationForm
+from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm
 from django import forms
 
 class ConsultantView(generic.DetailView):
@@ -27,7 +27,6 @@ def BioFormView(request, **kwargs):
 def PracticeAreaFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     if request.method == 'POST':
-
         form = PracticeAreaForm(request.POST, instance=consultant)
         if form.is_valid():
             form.save()
@@ -47,6 +46,29 @@ def SpecializationFormView(request, **kwargs):
     else:
         form = SpecializationForm(consultant_practice_areas, instance=consultant)
     return render(request, 'consultant/add-consultant-specialization.html', {'form': form})
+
+def SkillFormView(request, **kwargs):
+    consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+    if request.method == 'POST':
+        form = SkillForm(request.POST, instance=consultant)
+        if form.is_valid():
+            form.save()
+            return redirect('cv-view', consultant_id=consultant.id)
+    else:
+        form = SkillForm(instance=consultant)
+    return render(request, 'consultant/add-consultant-skill.html', {'form': form})
+
+def CVFormView(request, **kwargs):
+    consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+    if request.method == 'POST':
+        form = CVForm(request.POST, request.FILES, instance=consultant)
+        if form.is_valid():
+            consultant.form_complete=True
+            form.save()
+            return redirect('consultant-view', consultant_id=consultant.id)
+    else:
+        form = CVForm(instance=consultant)
+    return render(request, 'consultant/add-consultant-cv.html', {'form': form})
 
 
 

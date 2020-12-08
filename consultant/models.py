@@ -14,14 +14,10 @@ class Consultant(models.Model):
     first_name = models.CharField(verbose_name="First name", max_length=500)
     last_name = models.CharField(verbose_name="Last name", max_length=500)
     experience_years = models.IntegerField(verbose_name="Years of experience")
-
-    # Area of expertise - one to many linkages to expertise models
     practice_areas = models.ManyToManyField(PracticeArea, blank=True)
     specializations = models.ManyToManyField(Specialization, blank=True)
     skills = models.ManyToManyField(Skill, blank=True)
-
-
-    # CV - one to one relation to file uploaded
+    cv_file = models.FileField(blank=True, null=True)
 
     #####################
     # Computed fields
@@ -29,6 +25,7 @@ class Consultant(models.Model):
 
     date_created = models.DateField(verbose_name="Date consultant was added", auto_now=True)
     date_updated = models.DateField(verbose_name="Date of last update", auto_now=True)
+    form_complete = models.BooleanField(default=False)
     
 
     #####################
