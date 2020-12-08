@@ -26,13 +26,6 @@ class Consultant(models.Model):
     date_created = models.DateField(verbose_name="Date consultant was added", auto_now=True)
     date_updated = models.DateField(verbose_name="Date of last update", auto_now=True)
     form_complete = models.BooleanField(default=False)
-    
-
-    #####################
-    # Internally populated fields
-    #####################
-    
-    # Rating - one to many link with ratings model
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
@@ -40,5 +33,3 @@ class Consultant(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse
-
-
