@@ -16,9 +16,9 @@ class Consultant(models.Model):
     experience_years = models.IntegerField(verbose_name="Years of experience")
 
     # Area of expertise - one to many linkages to expertise models
-    practice_areas = models.ManyToManyField(PracticeArea)
-    specializations = models.ManyToManyField(Specialization)
-    skills = models.ManyToManyField(Skill)
+    practice_areas = models.ManyToManyField(PracticeArea, blank=True)
+    specializations = models.ManyToManyField(Specialization, blank=True)
+    skills = models.ManyToManyField(Skill, blank=True)
 
 
     # CV - one to one relation to file uploaded
@@ -27,8 +27,8 @@ class Consultant(models.Model):
     # Computed fields
     #####################
 
-    date_created = models.DateField(verbose_name="Date consultant was added")
-    date_updated = models.DateField(verbose_name="Date of last update")
+    date_created = models.DateField(verbose_name="Date consultant was added", auto_now=True)
+    date_updated = models.DateField(verbose_name="Date of last update", auto_now=True)
     
 
     #####################
