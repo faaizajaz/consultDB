@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Consultant
 from django.shortcuts import get_object_or_404
-from .forms import BioForm, PracticeAreaForm
+from .forms import BioForm, PracticeAreaForm, SpecializationForm
 from django import forms
 
 class ConsultantView(generic.DetailView):
@@ -31,14 +31,22 @@ def PracticeAreaFormView(request, **kwargs):
         form = PracticeAreaForm(request.POST, instance=consultant)
         if form.is_valid():
             form.save()
-            print(consultant.practicearea_set.all())
-            print(type(consultant.practice_areas))
             return redirect('specialization-view', consultant_id=consultant.id)
     else:
         form = PracticeAreaForm(instance=consultant)
-    return render(request, 'consultant/add-consultant.html', {'form': form})
+    return render(request, 'consultant/add-consultant-practice-area.html', {'form': form})
 
 def SpecializationFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+    consultant_practice_areas = consultant.practice_areas.all()
+    if request.method == 'POST':
+        form = SpecializationForm(consultant_practice_areas, request.POST, instance=consultant)
+        if form.is_valid():
+            form.save()
+            return redirect('skill-view', consultant_id=consultant.id)
+    else:
+        form = SpecializationForm(consultant_practice_areas, instance=consultant)
+    return render(request, 'consultant/add-consultant-specialization.html', {'form': form})
+
 
 

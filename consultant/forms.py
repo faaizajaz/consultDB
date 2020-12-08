@@ -37,6 +37,6 @@ class SpecializationForm(forms.ModelForm):
         model = Consultant
         fields = ['specializations']
 
-    def __init__(self, consultant_id, *args, **kwargs):
+    def __init__(self, consultant_practice_areas, *args, **kwargs):
         super(SpecializationForm, self).__init__(*args, **kwargs)
-        self.fields['specializations'].queryset = Specialization.objects.filter()
+        self.fields['specializations'].queryset = Specialization.objects.filter(practice_area__in=consultant_practice_areas)
