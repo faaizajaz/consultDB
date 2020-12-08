@@ -4,6 +4,7 @@ from django.db.models import Q
 from consultant.models import Consultant
 from django.core import serializers
 
+
 def ConsultantQueryView(request):
 
     if request.method == 'POST':
