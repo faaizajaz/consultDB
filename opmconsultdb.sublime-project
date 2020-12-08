@@ -11,7 +11,7 @@
 		{
 			"lsp-html":
 			{
-				"enabled": true
+				"enabled": false
 			},
 			"lsp-pyright":
 			{
