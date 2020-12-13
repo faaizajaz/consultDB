@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import query.views as QueryViews
+import rating.views as RatingViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('search/', QueryViews.ConsultantQueryView, name='consultant-query'),
-    path('consultant/', include('consultant.urls'))
+    path('consultant/', include('consultant.urls')),
+    path('ratingsearch/', RatingViews.RatingSearchView, name='rating-search')
 ]
