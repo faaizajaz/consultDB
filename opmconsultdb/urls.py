@@ -19,6 +19,7 @@ import query.views as QueryViews
 import rating.views as RatingViews
 
 urlpatterns = [
+    path('', QueryViews.ConsultantQueryView),
     path('admin/', admin.site.urls),
     path('search/', QueryViews.ConsultantQueryView, name='consultant-query'),
     path('consultant/', include('consultant.urls')),
