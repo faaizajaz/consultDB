@@ -12,11 +12,12 @@ class BioForm(forms.ModelForm):
     first_name = forms.CharField(required=True, max_length=500)
     last_name = forms.CharField(required=True, max_length=500)
     experience_years = forms.IntegerField(required=True)
+    day_rate = forms.IntegerField(required=True)
 
     class Meta:
 
         model = Consultant
-        fields = ['first_name', 'last_name', 'experience_years']
+        fields = ['first_name', 'last_name', 'experience_years', 'day_rate']
 
 class PracticeAreaForm(forms.ModelForm):
     """
