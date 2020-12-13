@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RatingSearchForm
+from .forms import RatingSearchForm, RateConsultantForm
 from django.db.models import Q
 from consultant.models import Consultant
 
@@ -26,3 +26,27 @@ def RatingSearchView(request):
         form = RatingSearchForm()
 
     return render(request, 'rating/rating_consultant_search.html', {'form': form})
+
+
+def RateConsultantView(request, **kwargs):
+    consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+
+    if request.method == 'POST':
+        form = RateConsultantForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+
+            new_rating = form.save(commit=False)
+
+            new_rating.consultant = consultant
+            new_rating.creator = request.user
+
+            new_rating.save()
+
+            # TODO: return a redirect or something
+    else:
+        form = RateConsultantForm()
+
+    return render(request, 'consultant/rate-consultant.html', {'form': form})
+
