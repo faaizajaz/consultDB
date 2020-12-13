@@ -1,6 +1,7 @@
 from django import forms
 from .models import Consultant
 from expertise.models import PracticeArea, Specialization, Skill
+from .fields import GroupedModelMultipleChoiceField
 
 
 class BioForm(forms.ModelForm):
@@ -22,7 +23,11 @@ class PracticeAreaForm(forms.ModelForm):
     Description:    The second consultant creation form. This populates
                     the practice area field.
     """
-    practice_areas = forms.ModelMultipleChoiceField(queryset=PracticeArea.objects.all(), required=True)
+    practice_areas = forms.ModelMultipleChoiceField(
+        queryset=PracticeArea.objects.all(),
+        required=True,
+        widget=forms.CheckboxSelectMultiple
+    )
 
     class Meta:
         model = Consultant
@@ -34,10 +39,22 @@ class SpecializationForm(forms.ModelForm):
                     the specializations field. The fields for the rendered form are filtered
                     based on the practice areas chosen in the previous form
     """
+    specializations = GroupedModelMultipleChoiceField(
+        # This queryset is replaced in the constructor override below
+        queryset=Specialization.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        choices_groupby='practice_area'
+    )
+
     class Meta:
         model = Consultant
         fields = ['specializations']
 
+    # Override constructor to only show models related to the selected practice areas.practice
+    #
+    # Here I added an extra parameter ("consultant_practice_areas") that takes a queryset of
+    # all the practice areas selected by a consultant, and filters for only the related
+    # specialization objects.
     def __init__(self, consultant_practice_areas, *args, **kwargs):
         super(SpecializationForm, self).__init__(*args, **kwargs)
         self.fields['specializations'].queryset = Specialization.objects.filter(practice_area__in=consultant_practice_areas)
