@@ -26,6 +26,8 @@ def ConsultantQueryView(request):
                 for skill in data.get('skills'):
                     query.add(Q(skills=skill), Q.AND)
 
+            # TODO: Remove serialization since I probably won't use Vue
+            # Serialize results for consumption by Vue in template
             results_to_serialize = Consultant.objects.filter(query)
 
             result = serializers.serialize(
