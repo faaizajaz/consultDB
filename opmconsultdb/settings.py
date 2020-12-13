@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rating.apps.RatingConfig',
     'expertise.apps.ExpertiseConfig',
     'query.apps.QueryConfig',
-    'rest_framework'
+    'rest_framework',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
