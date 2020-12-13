@@ -1,33 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<!--TODO: remove Vue -->
-	{% if result %}
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-		<script type="text/javascript">
-			var consultants = {{ result|safe }};
-		</script>
-
-		<div id="app">
-			<ul>
-				<li v-for="consultant in consultants">
-					[[ consultant.fields ]]
-				</li>
-			</ul>
-		</div>
-
-		<script>
-			var app = new Vue({
-				delimiters: ['[[', ']]'],
-				el: '#app',
-				data: {
-					consultants: consultants
-				}
-			})
-		</script>
-		
-	{% else %}
-		<p>No results</p>
-	{% endif %}
+	{% for consultant in result %}
+		<p>{{consultant.first_name}} {{consultant.last_name}}</p>
+		<p><a href="{% url 'consultant-view' consultant_id=consultant.id %}">Go to consultant</a></p>
+	{% endfor %}
 	
 {% endblock %}

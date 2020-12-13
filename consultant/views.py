@@ -18,7 +18,6 @@ def BioFormView(request, **kwargs):
         form = BioForm(request.POST)
         if form.is_valid():
             new_consultant = form.save()
-            print(new_consultant.id)
             return redirect('practice-area-view', consultant_id=new_consultant.id)
     else:
         form = BioForm()

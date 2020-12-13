@@ -22,6 +22,7 @@ urlpatterns = [
     path('', QueryViews.ConsultantQueryView),
     path('admin/', admin.site.urls),
     path('search/', QueryViews.ConsultantQueryView, name='consultant-query'),
+    path('<query_id>/search_specializations/', QueryViews.SpecializationQueryView, name='specialization-query'),
     path('consultant/', include('consultant.urls')),
     path('ratingsearch/', RatingViews.RatingSearchView, name='rating-search')
 ]
