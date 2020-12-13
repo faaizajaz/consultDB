@@ -2,7 +2,8 @@
 
 {% block content %}
 	{% for consultant in result %}
-		<p>{{consultant.first_name}}</p>
+		<p>{{consultant.first_name}} {{consultant.last_name}}</p>
+		<p><a href="{% url 'consultant-view' consultant_id=consultant.id %}">Go to consultant</a></p>
 	{% endfor %}
 	
 {% endblock %}
