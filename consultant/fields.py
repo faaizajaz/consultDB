@@ -26,8 +26,8 @@ class GroupedModelChoiceIterator(ModelChoiceIterator):
 
 class GroupedModelMultipleChoiceField(ModelMultipleChoiceField):
     """
-    Description:    A custom ModelMultipleChoiceField that uses the 
-                    GroupedModelChoiceIterator by taking a 'groupby' argument
+    Description:    A custom ModelMultipleChoiceField that uses the
+                    GroupedModelChoiceIterator
     """
     def __init__(self, *args, choices_groupby, **kwargs):
         if isinstance(choices_groupby, str):
