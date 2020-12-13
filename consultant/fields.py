@@ -5,6 +5,10 @@ from django.forms.models import ModelChoiceIterator, ModelMultipleChoiceField
 
 
 class GroupedModelChoiceIterator(ModelChoiceIterator):
+    """
+    Description:    A custom ModelChoiceIterator to allow us to group choices
+                    by some related field
+    """
     def __init__(self, field, groupby):
         self.groupby = groupby
         super().__init__(field)
@@ -21,6 +25,10 @@ class GroupedModelChoiceIterator(ModelChoiceIterator):
 
 
 class GroupedModelMultipleChoiceField(ModelMultipleChoiceField):
+    """
+    Description:    A custom ModelMultipleChoiceField that uses the 
+                    GroupedModelChoiceIterator by taking a 'groupby' argument
+    """
     def __init__(self, *args, choices_groupby, **kwargs):
         if isinstance(choices_groupby, str):
             choices_groupby = attrgetter(choices_groupby)
