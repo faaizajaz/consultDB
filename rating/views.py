@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import RatingSearchForm, RateConsultantForm
-from django.db.models import Q
 from consultant.models import Consultant
 
 
@@ -45,6 +44,7 @@ def RateConsultantView(request, **kwargs):
             new_rating.save()
 
             # TODO: return a redirect or something
+            return redirect('consultant-view', consultant_id=consultant.id)
     else:
         form = RateConsultantForm()
 
