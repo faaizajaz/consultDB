@@ -63,7 +63,7 @@ def CVFormView(request, **kwargs):
     if request.method == 'POST':
         form = CVForm(request.POST, request.FILES, instance=consultant)
         if form.is_valid():
-            consultant.form_complete=True
+            consultant.form_complete = True
             form.save()
             return redirect('consultant-view', consultant_id=consultant.id)
     else:
