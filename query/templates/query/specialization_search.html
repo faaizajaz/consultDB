@@ -8,11 +8,11 @@ Choose specializations
 {% block content %}
 		<form method = "POST">
 		{% csrf_token %}
-		{{ form }}
+		{{ form.as_table }}
 		<div>
 			<button class="btn btn-primary" type="submit" name="search">
 				Search
 			</button>
 		</div>
 	</form>
-{% endblock %}
+{% endblock %}`

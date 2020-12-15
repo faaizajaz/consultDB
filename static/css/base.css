@@ -92,3 +92,30 @@ body {
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+#id_specializations > li {
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  list-style-type: none;
+  display: block;
+  padding: 10px;
+  font-weight: bold; 
+}
+
+ul[id^="id_specializations_"] > li {
+  list-style-type: none;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+ul[id^="id_specializations_"] {
+  columns: 4;
+}
+
+
+/*[@id="id_specializations"]/li[1]
+#id_specializations > li
+#id_specializations > li
+
+*/
