@@ -1,46 +1,50 @@
 {% extends 'base.html' %}
 
+{% block page_heading %}
+{{consultant.first_name}} {{consultant.last_name}}
+{% endblock %}
+
 {% block content %}
-		<p>
-			<b>{{consultant.first_name}} {{consultant.last_name}}</b>
-		</p>
-		<p>
-		<ul>
-			
-		  <li><b>Years of experience: </b>{{consultant.experience_years}}</li>
-		  {% for pa in consultant.practice_areas.all %}
-			<li><b>Practice area: </b>{{pa}}</li>
-		  {% endfor %}
-
-		  {% for spec in consultant.specializations.all %}
-				<li><b>Specialization: </b>{{spec}}</li>
-		  {% endfor %}
-
-		  {% for skill in consultant.skills.all %}
-				<li><b>Skill: </b>{{skill}}</li>
-		  {% endfor %}
-		</ul>
+	<p>
+	<ul>
 		
-		</p>
+	  <li><b>Years of experience: </b>{{consultant.experience_years}}</li>
 
-		<p>
-			<a href="{% url 'rate-consultant-view' consultant_id=consultant.id %}">Rate this consultant</a>
-		</p>
+	  {% for pa in consultant.practice_areas.all %}
+		<li><b>Practice area: </b>{{pa}}</li>
+			<ul>
+			{% for specialization in pa.specialization_set.all %}
+				<li>{{specialization}}</li>
 
-		<p>
-			<b>Reviews from OPM staff</b>
-		</p>
+		  {% endfor %}
+		  </ul>
 
-		<p>
-			{% for review in consultant.rating_set.all %}
-				<ul>
-					<li>Rating by: {{review.creator}}</li>
-					<li>Project worked on: {{review.project_code}}</li>
-					<li>Rating (1-5): {{review.star_rating}}</li>
-					<li>Comments: {{review.comment}}</li>
-				</ul>
-			{% endfor %}
-		</p>
+		{% endfor %}
+		<li><b>Skills: </b></li>
+			<ul>
+			  {% for skill in consultant.skills.all %}
+					<li>{{skill}}</li>
+			  {% endfor %}
+			</ul>
+	</ul>
+	
+	</p>
+
+	
+		<div class="card">
+				<h5 class="card-header d-flex justify-content-between">
+	 	 			Reviews from OPM staff <span class="pull-right"><a href="{% url 'rate-consultant-view' consultant_id=consultant.id %}">Add a review</a></span>
+				</h5>
+				{% for review in consultant.rating_set.all %}
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+				    <h6 class="card-title">Rated <i class="text-success">{{ review.star_rating }}</i> stars by <i class="text-success">{{ review.creator }}</i> for <i class="text-success">{{ review.project_code }}</i></h6>
+				    <p class="card-text">{{ review.comment }}</p>
+				  </li>
+		  	</ul>
+		  	{% endfor %}
+		</div>
+	
 
 
 {% endblock %}

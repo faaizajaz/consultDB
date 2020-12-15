@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_heading %}
+{{consultant.first_name}} {{consultant.last_name}} - select specializations
+{% endblock %}
+
 {% block content %}
 	<form method = "POST">
 		{% csrf_token %}
-		{{ form|crispy }}
+		{{ form }}
 		<div>
 			<button type="Submit">
 				Next

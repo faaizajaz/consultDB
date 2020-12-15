@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_heading %}
+Choose specializations
+{% endblock %}
+
 {% block content %}
 		<form method = "POST">
 		{% csrf_token %}

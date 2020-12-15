@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_heading %}
+{{consultant.first_name}} {{consultant.last_name}} - upload CV
+{% endblock %}
+
 {% block content %}
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
