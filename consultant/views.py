@@ -14,7 +14,7 @@ class ConsultantView(generic.DetailView):
 
 def BioFormView(request, **kwargs):
 
-    if request.method =='POST':
+    if request.method == 'POST':
         form = BioForm(request.POST)
         if form.is_valid():
             new_consultant = form.save()
@@ -62,6 +62,7 @@ def CVFormView(request, **kwargs):
     if request.method == 'POST':
         form = CVForm(request.POST, request.FILES, instance=consultant)
         if form.is_valid():
+            # Set flag to indicate that consultant completed the form
             consultant.form_complete = True
             form.save()
             return redirect('consultant-view', consultant_id=consultant.id)
