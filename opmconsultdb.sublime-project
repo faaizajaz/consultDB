@@ -9,6 +9,10 @@
 	{
 		"LSP":
 		{
+			"lsp-css":
+			{
+				"enabled": true
+			},
 			"lsp-html":
 			{
 				"enabled": false
