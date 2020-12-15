@@ -48,21 +48,20 @@ def SpecializationQueryView(request, **kwargs):
         if form.is_valid():
             data = form.cleaned_data
             query = Q()
-            print("Here's our data?")
-            print(data)
-
-            if new_query.practice_areas:
-                # TODO: Add these practice areas to {'practice_areas': new_query.practice_areas.all()}
-                print("we get here")
-                print(type(new_query.practice_areas.all())) # This is a queryset!
+            # Don't really need to do this for practice areas if specializations are selected.
+            #
+            # if new_query.practice_areas:
+            #     print(type(new_query.practice_areas.all())) # This is a queryset phew
 
             if data.get('specializations'):
                 for specialization in data.get('specializations'):
                     query.add(Q(specializations=specialization), Q.AND)
 
-            if data.get('skills'):
+            if new_query.skills:
                 # Do the same here
-                return
+                data['skills'] = new_query.skills.all()
+                for skill in data.get('skills'):
+                    query.add(Q(skills=skill), Q.AND)
 
             result = Consultant.objects.filter(query)
             return render(request, 'query/results.html', {'result': result})
