@@ -32,7 +32,7 @@ def PracticeAreaFormView(request, **kwargs):
             return redirect('specialization-view', consultant_id=consultant.id)
     else:
         form = PracticeAreaForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-practice-area.html', {'form': form})
+    return render(request, 'consultant/add-consultant-practice-area.html', {'form': form, 'consultant': consultant})
 
 def SpecializationFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
@@ -44,7 +44,7 @@ def SpecializationFormView(request, **kwargs):
             return redirect('skill-view', consultant_id=consultant.id)
     else:
         form = SpecializationForm(consultant_practice_areas, instance=consultant)
-    return render(request, 'consultant/add-consultant-specialization.html', {'form': form})
+    return render(request, 'consultant/add-consultant-specialization.html', {'form': form, 'consultant': consultant})
 
 def SkillFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
@@ -55,7 +55,7 @@ def SkillFormView(request, **kwargs):
             return redirect('cv-view', consultant_id=consultant.id)
     else:
         form = SkillForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-skill.html', {'form': form})
+    return render(request, 'consultant/add-consultant-skill.html', {'form': form, 'consultant': consultant})
 
 def CVFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
@@ -67,7 +67,7 @@ def CVFormView(request, **kwargs):
             return redirect('consultant-view', consultant_id=consultant.id)
     else:
         form = CVForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-cv.html', {'form': form})
+    return render(request, 'consultant/add-consultant-cv.html', {'form': form, 'consultant': consultant})
 
 
 
