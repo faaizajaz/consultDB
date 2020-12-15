@@ -48,5 +48,5 @@ def RateConsultantView(request, **kwargs):
     else:
         form = RateConsultantForm()
 
-    return render(request, 'consultant/rate-consultant.html', {'form': form})
+    return render(request, 'consultant/rate-consultant.html', {'form': form, 'consultant': consultant})
 
