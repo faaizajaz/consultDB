@@ -39,6 +39,7 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 				    <h6 class="card-title">Rated <i class="text-success">{{ review.star_rating }}</i> stars by <i class="text-success">{{ review.creator }}</i> for <i class="text-success">{{ review.project_code }}</i></h6>
+				    <h6>{{ review.date_of_engagement }} {{review.days_worked}} days @ {{ review.contracted_rate }}</h6>
 				    <p class="card-text">{{ review.comment }}</p>
 				  </li>
 		  	</ul>

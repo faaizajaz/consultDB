@@ -64,6 +64,12 @@ class SkillForm(forms.ModelForm):
     """
     Description:    The fourth consultant creation form. This populates the skills field.
     """
+    skills = forms.ModelMultipleChoiceField(
+        queryset=Skill.objects.all(),
+        required=True,
+        widget=forms.CheckboxSelectMultiple
+    )
+
     class Meta:
         model = Consultant
         fields = ['skills']
