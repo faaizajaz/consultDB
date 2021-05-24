@@ -30,6 +30,7 @@ def ConsultantQueryView(request):
             form = ConsultantQueryForm(request.POST)
             if form.is_valid():
                 new_query = form.save(commit=False)
+                #TODO: This throws an error if a user is not logged in
                 new_query.user = request.user
                 form.save()
                 return redirect('specialization-query', query_id=new_query.id)
