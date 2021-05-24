@@ -25,7 +25,7 @@ SECRET_KEY = '_jx!u81@2y6hda08se!si$myklaufyw9*nrmldcj7c0qjqkgfe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['opmsupplier.pk', '68.183.231.148']
 
 
 # Application definition
