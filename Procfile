@@ -2,4 +2,4 @@
 web: gunicorn opmconsultdb.wsgi:application
 
 # This runs commands during deploy: make migrations, migrate db
-release: python manage.py makemigrations; python manage.py migrate --noinput; # python manage.py loaddata grades.json; 
+release: python manage.py makemigrations; python manage.py migrate --noinput # python manage.py loaddata grades.json; 
