@@ -97,6 +97,10 @@ DEBUG = False
 
 # FOR DEPLOYMENT
 
+#MEDIA
+MEDIA_ROOT = '/storage'
+MEDIA_URL = '/media/'
+
 DATABASES = {
   'default': dj_database_url.config()
 }
