@@ -11,8 +11,8 @@ class BioForm(forms.ModelForm):
     """
     first_name = forms.CharField(required=True, max_length=500)
     last_name = forms.CharField(required=True, max_length=500)
-    experience_years = forms.IntegerField(required=True)
-    day_rate = forms.IntegerField(required=True)
+    experience_years = forms.IntegerField(required=True, label="Total years of experience")
+    day_rate = forms.IntegerField(required=True, label="Daily rate in PKR")
 
     class Meta:
 
