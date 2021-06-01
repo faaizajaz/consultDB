@@ -41,9 +41,10 @@ def RateConsultantView(request, **kwargs):
             new_rating.consultant = consultant
             new_rating.creator = request.user
 
+            # TODO: Check if consultant's previous engagement flag is false and set to true if it is.
+
             new_rating.save()
 
-            # TODO: return a redirect or something
             return redirect('consultant-view', consultant_id=consultant.id)
     else:
         form = RateConsultantForm()
