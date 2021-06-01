@@ -1,0 +1,354 @@
+[
+	{
+		"model": "expertise.specialization",
+		"pk": 1,
+		"fields": {
+			"name": "Climate smart agriculture",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 2,
+		"fields": {
+			"name": "Climate change policy",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 3,
+		"fields": {
+			"name": "GHG accounting & MRV",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 4,
+		"fields": {
+			"name": "Cimate resilience",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 5,
+		"fields": {
+			"name": "REDD+",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 6,
+		"fields": {
+			"name": "INDCs",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 7,
+		"fields": {
+			"name": "Energy Efficiency",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 8,
+		"fields": {
+			"name": "Climate finance",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 9,
+		"fields": {
+			"name": "Urban resilience",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 10,
+		"fields": {
+			"name": "Climate smart agriculture",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 11,
+		"fields": {
+			"name": "Community based DRM",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 12,
+		"fields": {
+			"name": "Disaster risk financing",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 13,
+		"fields": {
+			"name": "Early warning systems",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 14,
+		"fields": {
+			"name": "Risk mitigation",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 15,
+		"fields": {
+			"name": "Ecosystem based adaptation",
+			"practice_area": 1
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 16,
+		"fields": {
+			"name": "Budget & expenditure management",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 17,
+		"fields": {
+			"name": "Accounting and audit",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 18,
+		"fields": {
+			"name": "Financial management information systems",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 19,
+		"fields": {
+			"name": "Domestic revenue mobilization",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 20,
+		"fields": {
+			"name": "Fiscal federalism & decentralization",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 21,
+		"fields": {
+			"name": "Financial regulations",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 22,
+		"fields": {
+			"name": "Treasury management",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 23,
+		"fields": {
+			"name": "Debt management",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 24,
+		"fields": {
+			"name": "Corporate finance",
+			"practice_area": 2
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 25,
+		"fields": {
+			"name": "Public sector reform",
+			"practice_area": 3
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 26,
+		"fields": {
+			"name": "E-governance",
+			"practice_area": 3
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 27,
+		"fields": {
+			"name": "Independent evaluation & assessment",
+			"practice_area": 3
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 28,
+		"fields": {
+			"name": "Organizational review & strengthening",
+			"practice_area": 3
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 29,
+		"fields": {
+			"name": "Decentralization/local governance",
+			"practice_area": 3
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 30,
+		"fields": {
+			"name": "Epidemiological modeling",
+			"practice_area": 4
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 31,
+		"fields": {
+			"name": "Public health policy",
+			"practice_area": 4
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 32,
+		"fields": {
+			"name": "Big data",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 33,
+		"fields": {
+			"name": "Machine learning",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 34,
+		"fields": {
+			"name": "Natural language processing",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 35,
+		"fields": {
+			"name": "Survey monitoring",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 36,
+		"fields": {
+			"name": "Instrument digitization",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 37,
+		"fields": {
+			"name": "CAPI training",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 38,
+		"fields": {
+			"name": "CAPI programming",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 39,
+		"fields": {
+			"name": "Data management",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 40,
+		"fields": {
+			"name": "Data visualization",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 41,
+		"fields": {
+			"name": "Survey & sampling design",
+			"practice_area": 5
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 42,
+		"fields": {
+			"name": "Logframe development",
+			"practice_area": 6
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 43,
+		"fields": {
+			"name": "Impact evaluation",
+			"practice_area": 6
+		}
+	},
+	{
+		"model": "expertise.specialization",
+		"pk": 44,
+		"fields": {
+			"name": "Qualitative assessment",
+			"practice_area": 6
+		}
+	}
+]

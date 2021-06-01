@@ -1,0 +1,37 @@
+[
+	{
+		"model": "expertise.skill",
+		"pk": 1,
+		"fields": {
+			"name": "Microsoft Office"
+		}
+	},
+	{
+		"model": "expertise.skill",
+		"pk": 2,
+		"fields": {
+			"name": "NVivo"
+		}
+	},
+	{
+		"model": "expertise.skill",
+		"pk": 3,
+		"fields": {
+			"name": "ArcGIS"
+		}
+	},
+	{
+		"model": "expertise.skill",
+		"pk": 4,
+		"fields": {
+			"name": "Report writing"
+		}
+	},
+	{
+		"model": "expertise.skill",
+		"pk": 5,
+		"fields": {
+			"name": "Public speaking"
+		}
+	}
+]

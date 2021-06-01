@@ -1,0 +1,65 @@
+[
+	{
+		"model": "expertise.practicearea",
+		"pk": 1,
+		"fields": {
+			"name": "Climate Change & DRM"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 2,
+		"fields": {
+			"name": "Public Financial Management"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 3,
+		"fields": {
+			"name": "Public Sector Governance"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 4,
+		"fields": {
+			"name": "Health & Nutrition"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 5,
+		"fields": {
+			"name": "Data, Statistics & Survey"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 6,
+		"fields": {
+			"name": "Monitoring & Evaluation"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 7,
+		"fields": {
+			"name": "Education"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 8,
+		"fields": {
+			"name": "Natural Resource Management"
+		}
+	},
+	{
+		"model": "expertise.practicearea",
+		"pk": 9,
+		"fields": {
+			"name": "Poverty & Social Protection"
+		}
+	}
+]
