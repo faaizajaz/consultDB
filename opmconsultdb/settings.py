@@ -82,29 +82,27 @@ WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
-       'NAME': 'opmconsultdb_dev',
-       'USER': 'faaiz',
-       'PASSWORD': 'Outpo3t33',
-       'HOST': '',
-       'PORT': '',  # this seems to be default that the server wants
-   }  # noqa: E122
-}
+# DATABASES = {
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
+#        'NAME': 'opmconsultdb_dev',
+#        'USER': 'faaiz',
+#        'PASSWORD': 'Outpo3t33',
+#        'HOST': '',
+#        'PORT': '',  # this seems to be default that the server wants
+#    }  # noqa: E122
+# }
 
 # FOR DEPLOYMENT
-# DATABASES = {
-#     'default': dj_database_url.config()
-# }
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 # MEDIA
 MEDIA_ROOT = '/storage'
 MEDIA_URL = '/media/'
-
-
 
 
 # Password validation
