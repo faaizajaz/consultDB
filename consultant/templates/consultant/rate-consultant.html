@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_title%}
+	Add a rating
+{% endblock %}
+
 {% block page_heading %}
 Add a review for {{consultant.first_name}} {{consultant.last_name}}
 {% endblock %}

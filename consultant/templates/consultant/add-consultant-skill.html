@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_title%}
+	Add skills
+{% endblock %}
+
 {% block page_heading %}
 {{consultant.first_name}} {{consultant.last_name}} - select skills
 {% endblock %}
