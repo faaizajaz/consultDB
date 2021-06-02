@@ -66,7 +66,7 @@ class SkillForm(forms.ModelForm):
     """
     skills = forms.ModelMultipleChoiceField(
         queryset=Skill.objects.all(),
-        required=True,
+        required=False,
         widget=forms.CheckboxSelectMultiple
     )
 
