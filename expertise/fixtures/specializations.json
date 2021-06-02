@@ -75,7 +75,7 @@
 		"model": "expertise.specialization",
 		"pk": 10,
 		"fields": {
-			"name": "Climate smart agriculture",
+			"name": "Environmental impact assessment",
 			"practice_area": 1
 		}
 	},
