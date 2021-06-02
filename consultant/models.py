@@ -28,6 +28,7 @@ class Consultant(models.Model):
     date_updated = models.DateField(verbose_name="Date of last update", auto_now=True)
     form_complete = models.BooleanField(default=False)
     previous_engagement = models.BooleanField(default=False)
+    query_score = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
