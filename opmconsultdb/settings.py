@@ -57,6 +57,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'opmconsultdb.urls'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home' 
+
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
@@ -82,24 +85,24 @@ WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
-#        'NAME': 'opmconsultdb_dev',
-#        'USER': 'faaiz',
-#        'PASSWORD': 'Outpo3t33',
-#        'HOST': '',
-#        'PORT': '',  # this seems to be default that the server wants
-#    }  # noqa: E122
-# }
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
+       'NAME': 'opmconsultdb_dev',
+       'USER': 'faaiz',
+       'PASSWORD': 'Outpo3t33',
+       'HOST': '',
+       'PORT': '',  # this seems to be default that the server wants
+   }  # noqa: E122
+}
 
 # FOR DEPLOYMENT
-DATABASES = {
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 # MEDIA
 MEDIA_ROOT = '/storage'
