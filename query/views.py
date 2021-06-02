@@ -1,4 +1,3 @@
-from re import template
 from django.shortcuts import render, redirect
 from .forms import ConsultantQueryForm, SpecializationQueryForm
 from django.db.models import Q
