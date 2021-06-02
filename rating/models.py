@@ -7,8 +7,7 @@ class Rating(models.Model):
     """
     Description: Rating object created for consultants by OPM users
     """
-
-    # TODO: replace ForeignKey with TextField (if single user acct for organization)
+    
     creator = models.CharField(verbose_name="Your name", max_length=500)
     consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE)
     project_code = models.CharField(verbose_name="OPM project code", max_length=10)
