@@ -23,4 +23,4 @@ class RateConsultantForm(forms.ModelForm):
 
     class Meta:
         model = Rating
-        exclude = ['creator', 'consultant']
+        exclude = ['consultant']
