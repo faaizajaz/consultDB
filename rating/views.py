@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import RatingSearchForm, RateConsultantForm
 from consultant.models import Consultant
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def RatingSearchView(request):
 
     if request.method == 'POST':
@@ -26,7 +27,7 @@ def RatingSearchView(request):
 
     return render(request, 'rating/rating_consultant_search.html', {'form': form})
 
-
+@login_required
 def RateConsultantView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
 

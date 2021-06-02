@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 import query.views as QueryViews
 import rating.views as RatingViews
+from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    path('', QueryViews.ConsultantQueryView),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
     path('search/', QueryViews.ConsultantQueryView, name='consultant-query'),
     path('<query_id>/search_specializations/', QueryViews.SpecializationQueryView, name='specialization-query'),
     path('consultant/', include('consultant.urls')),
-    path('ratingsearch/', RatingViews.RatingSearchView, name='rating-search')
+    path('ratingsearch/', RatingViews.RatingSearchView, name='rating-search'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name="login"),
+
 ]

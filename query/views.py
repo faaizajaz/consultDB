@@ -3,8 +3,9 @@ from .forms import ConsultantQueryForm, SpecializationQueryForm
 from django.db.models import Q
 from consultant.models import Consultant
 from .models import ConsultantQuery
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def ConsultantQueryView(request):
 
     if request.method == 'POST':
@@ -70,7 +71,7 @@ def ConsultantQueryView(request):
 
     return render(request, 'query/consultant_search.html', {'form': form})
 
-
+@login_required
 def SpecializationQueryView(request, **kwargs):
     new_query = ConsultantQuery.objects.get(id=kwargs['query_id'])
     query_practice_areas = new_query.practice_areas.all()

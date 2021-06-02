@@ -4,13 +4,16 @@ from .models import Consultant
 from django.shortcuts import get_object_or_404
 from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class ConsultantView(generic.DetailView):
+
+class ConsultantView(LoginRequiredMixin, generic.DetailView):
     template_name = 'consultant/consultant-view.html'
     model = Consultant
 
     def get_object(self):
         return get_object_or_404(Consultant, pk=self.kwargs['consultant_id'])
+
 
 def BioFormView(request, **kwargs):
 
@@ -22,6 +25,7 @@ def BioFormView(request, **kwargs):
     else:
         form = BioForm()
     return render(request, 'consultant/add-consultant.html', {'form': form})
+
 
 def PracticeAreaFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
