@@ -32,7 +32,7 @@
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">OPM Consultant Database</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'home' %}">OPM Consultant Database</a>
       {% if not user.is_authenticated  %}
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
@@ -74,9 +74,9 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">{% block page_heading %}{% endblock %}</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
+              <!-- <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
-              </div>
+              </div> -->
             </div>
           </div>
           {% block content %}
