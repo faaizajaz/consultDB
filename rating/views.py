@@ -39,8 +39,7 @@ def RateConsultantView(request, **kwargs):
             new_rating = form.save(commit=False)
 
             new_rating.consultant = consultant
-            new_rating.creator = request.user
-
+            
             print("Current is:" + " " + str(new_rating.consultant.previous_engagement))
 
             if new_rating.consultant.previous_engagement is False:
