@@ -81,6 +81,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 
 
+##########################################CHANGE FOR DEPLOY##########################################
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/storage'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -104,9 +110,8 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 
-# MEDIA
-MEDIA_ROOT = '/storage'
-MEDIA_URL = '/media/'
+
+
 
 
 # Password validation
