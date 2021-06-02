@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_jx!u81@2y6hda08se!si$myklaufyw9*nrmldcj7c0qjqkgfe'
 
-ALLOWED_HOSTS = ['opmsupplier.pk', '178.128.89.255', '127.0.0.1']
+ALLOWED_HOSTS = ['opmsupplier.pk', '178.128.89.255', '127.0.0.1', 'www.opmsupplier.pk']
 
 
 # Application definition
