@@ -1,6 +1,6 @@
 from django.db import models
 from consultant.models import Consultant
-from django.contrib.auth.models import User
+
 
 
 class Rating(models.Model):
@@ -9,15 +9,16 @@ class Rating(models.Model):
     """
 
     # TODO: replace ForeignKey with TextField (if single user acct for organization)
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    creator = models.CharField(verbose_name="Your name", max_length=500)
     consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE)
     project_code = models.CharField(verbose_name="OPM project code", max_length=10)
     star_rating = models.IntegerField(verbose_name="Rating from 1-5", default=0)
     comment = models.TextField(verbose_name="Additional comments")
-    date_of_engagement = models.TextField(
+    date_of_engagement = models.CharField(
         verbose_name="Year of engagement",
         null=True,
-        blank=True
+        blank=True,
+        max_length=20
     )
     days_worked = models.IntegerField(
         verbose_name="Number of days contracted",
