@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_jx!u81@2y6hda08se!si$myklaufyw9*nrmldcj7c0qjqkgfe'
 
-ALLOWED_HOSTS = ['opmsupplier.pk', '68.183.231.148', '127.0.0.1']
+ALLOWED_HOSTS = ['opmsupplier.pk', '178.128.89.255', '127.0.0.1']
 
 
 # Application definition
@@ -82,23 +82,24 @@ WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+DEBUG = True
 
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
-#        'NAME': 'opmconsultdb_dev',
-#        'USER': 'faaiz',
-#        'PASSWORD': 'Outpo3t33',
-#        'HOST': '',
-#        'PORT': '',  # this seems to be default that the server wants
-#    }  # noqa: E122
-# }
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
+       'NAME': 'opmconsultdb_dev',
+       'USER': 'faaiz',
+       'PASSWORD': 'Outpo3t33',
+       'HOST': '',
+       'PORT': '',  # this seems to be default that the server wants
+   }  # noqa: E122
+}
 
 # FOR DEPLOYMENT
-DATABASES = {
-    'default': dj_database_url.config()
-}
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 # MEDIA
 MEDIA_ROOT = '/storage'
