@@ -25,12 +25,14 @@ def ConsultantQueryView(request):
 
                 result = Consultant.objects.filter(query)
 
+                # TODO: Restructure the queryset into a dictionary and add a field that calculates match %
+
                 return render(request, 'query/results.html', {'result': result})
         if 'add-specializations' in request.POST:
             form = ConsultantQueryForm(request.POST)
             if form.is_valid():
                 new_query = form.save(commit=False)
-                #TODO: This throws an error if a user is not logged in
+                # TODO: This throws an error if a user is not logged in
                 new_query.user = request.user
                 form.save()
                 return redirect('specialization-query', query_id=new_query.id)
