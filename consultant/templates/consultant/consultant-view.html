@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load consultant_tags %}
 
 {% block page_title%}
 	Consultant view
@@ -16,9 +17,9 @@
 	  <li><b>Years of experience: </b>{{consultant.experience_years}}</li>
 
 	  {% for pa in consultant.practice_areas.all %}
-		<li><b>Practice area: </b>{{pa}}</li>
+		<li><b>{{pa}}</b></li>
 			<ul>
-			{% for specialization in pa.specialization_set.all %}
+			{% for specialization in consultant|specialization_display:pa.specialization_set.all %}
 				<li>{{specialization}}</li>
 
 		  {% endfor %}
