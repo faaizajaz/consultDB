@@ -47,7 +47,10 @@ def ConsultantQueryView(request):
                             temp_query_score += 1
                             #consultant.query_score += 1
 
-                    consultant.query_score = (temp_query_score / num_parameters) * 100
+                    if num_parameters != 0:
+                        consultant.query_score = (temp_query_score / num_parameters) * 100
+                    else:
+                        consultant.query_score = 100
 
                     consultant.save()
 
@@ -112,7 +115,11 @@ def SpecializationQueryView(request, **kwargs):
                     if skill in consultant.skills.all():
                         temp_query_score += 1
 
-                consultant.query_score = (temp_query_score / num_parameters) * 100
+                if num_parameters != 0:
+                    consultant.query_score = (temp_query_score / num_parameters) * 100
+                else:
+                    consultant.query_score = 100
+
                 consultant.save()
 
 
