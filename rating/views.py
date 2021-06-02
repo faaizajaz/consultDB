@@ -34,14 +34,20 @@ def RateConsultantView(request, **kwargs):
         form = RateConsultantForm(request.POST)
 
         if form.is_valid():
-            data = form.cleaned_data
+            # data = form.cleaned_data
 
             new_rating = form.save(commit=False)
 
             new_rating.consultant = consultant
             new_rating.creator = request.user
 
-            # TODO: Check if consultant's previous engagement flag is false and set to true if it is.
+            print("Current is:" + " " + str(new_rating.consultant.previous_engagement))
+
+            if new_rating.consultant.previous_engagement is False:
+                new_rating.consultant.previous_engagement = True
+                new_rating.consultant.save()
+
+            print("Current is:" + " " + str(new_rating.consultant.previous_engagement))
 
             new_rating.save()
 
