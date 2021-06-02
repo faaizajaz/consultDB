@@ -31,9 +31,6 @@ def ConsultantQueryView(request):
 
                 result = Consultant.objects.filter(query).distinct()
 
-                # TODO: Restructure the queryset into a dictionary and add a field that calculates match %
-                # Now we have all the consultants with AT LEAST ONE match in an iterable queryset.self.
-                # Next step is to see how many matches each consultant has, and assign a score.
 
                 for consultant in result:
                     consultant.query_score = 0
