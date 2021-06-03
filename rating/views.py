@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RatingSearchForm, RateConsultantForm
 from consultant.models import Consultant
 from django.contrib.auth.decorators import login_required
+from django.contrib.postgres.search import TrigramSimilarity
 
 @login_required
 def RatingSearchView(request):
@@ -12,14 +13,11 @@ def RatingSearchView(request):
         if form.is_valid():
             data = form.cleaned_data
 
-            # TODO: Single field search: use one search field to query both names
-            first_name = data.get('first_name')
-            last_name = data.get('last_name')
+            # Yuck.
+            search_term = data.get('first_name')            
+            result = Consultant.objects.annotate(similarity=TrigramSimilarity('first_name', search_term) + TrigramSimilarity('last_name', search_term),).filter(similarity__gt=0.3).order_by('-similarity')
 
-            result = Consultant.objects.filter(
-                first_name__icontains=first_name,
-                last_name__icontains=last_name
-            )
+
 
             return render(request, 'rating/rating_search_results.html', {'result': result})
     else:
