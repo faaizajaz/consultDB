@@ -100,7 +100,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
        'NAME': 'opmconsultdb_dev',
        'USER': 'faaiz',
-       'PASSWORD': 'Outpo3t33',
+       'PASSWORD': 'apassword',
        'HOST': '',
        'PORT': '',  # this seems to be default that the server wants
    }  # noqa: E122
