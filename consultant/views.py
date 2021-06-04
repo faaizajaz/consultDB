@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm
 from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.decorators import login_required
 
 class ConsultantView(LoginRequiredMixin, generic.DetailView):
     template_name = 'consultant/consultant-view.html'
@@ -14,7 +14,7 @@ class ConsultantView(LoginRequiredMixin, generic.DetailView):
     def get_object(self):
         return get_object_or_404(Consultant, pk=self.kwargs['consultant_id'])
 
-
+@login_required
 def BioFormView(request, **kwargs):
 
     if request.method == 'POST':
@@ -26,7 +26,7 @@ def BioFormView(request, **kwargs):
         form = BioForm()
     return render(request, 'consultant/add-consultant.html', {'form': form})
 
-
+@login_required
 def PracticeAreaFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     if request.method == 'POST':
@@ -38,6 +38,7 @@ def PracticeAreaFormView(request, **kwargs):
         form = PracticeAreaForm(instance=consultant)
     return render(request, 'consultant/add-consultant-practice-area.html', {'form': form, 'consultant': consultant})
 
+@login_required
 def SpecializationFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     consultant_practice_areas = consultant.practice_areas.all()
@@ -50,6 +51,7 @@ def SpecializationFormView(request, **kwargs):
         form = SpecializationForm(consultant_practice_areas, instance=consultant)
     return render(request, 'consultant/add-consultant-specialization.html', {'form': form, 'consultant': consultant})
 
+@login_required
 def SkillFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     if request.method == 'POST':
@@ -61,6 +63,7 @@ def SkillFormView(request, **kwargs):
         form = SkillForm(instance=consultant)
     return render(request, 'consultant/add-consultant-skill.html', {'form': form, 'consultant': consultant})
 
+@login_required
 def CVFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     if request.method == 'POST':
