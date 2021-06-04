@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-	<p>
+<!-- 	<p>
 	<ul>
 		
 	  <li><b>Years of experience: </b>{{consultant.experience_years}}</li>
@@ -38,10 +38,76 @@
 	<h4><a href="{{ consultant.cv_file.url }}">Download CV</a></h4>
 	{% endif %}
 	
-	</p>
+	</p> -->
 
-	
-		<div class="card">
+	<ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#expertise" data-toggle="tab" class="nav-link">Expertise</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#review" data-toggle="tab" class="nav-link">Reviews</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Consultant Profile</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                <b>Years of experience:</b> {{ consultant.experience_years }} <br/>
+                                <b>Day rate (PKR):</b> {{ consultant.day_rate }} <br/>
+                                <b>Email address:</b> {{ consultant.email }} <br/>
+                                <b>Previously engaged?:</b> {{ consultant.previous_engagement }}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Practice areas</h6>
+                            {% for pa in consultant.practice_areas.all %}
+                            	<a href="#" class="badge badge-dark badge-pill">{{pa}}</a>
+
+                            {% endfor %}
+                            <hr>
+                            <h6>Skills</h6>
+                            {% for skill in consultant.skills.all %}
+                            	<a href="#" class="badge badge-dark badge-pill">{{skill}}</a>
+
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="col-md-12">
+                        	<hr>
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Available CV files</h5>
+                            {% if consultant.cv_file %}
+								<h4><a href="{{ consultant.cv_file.url }}">Download CV</a></h4>
+							{% endif %}
+
+                            
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="expertise">
+                	<ul>
+	  					{% for pa in consultant.practice_areas.all %}
+							<li><b>{{pa}}</b></li>
+							<ul>
+								{% for specialization in consultant|specialization_display:pa.specialization_set.all %}
+									<li>{{specialization}}</li>
+
+		  						{% endfor %}
+		  					</ul>
+
+						{% endfor %}
+
+					</ul>
+                    
+                </div>
+                <div class="tab-pane" id="review">
+                	<div class="card">
 				<h5 class="card-header d-flex justify-content-between">
 	 	 			Reviews from OPM staff <span class="pull-right"><a href="{% url 'rate-consultant-view' consultant_id=consultant.id %}">Add a review</a></span>
 				</h5>
@@ -55,6 +121,10 @@
 		  	</ul>
 		  	{% endfor %}
 		</div>
+                    
+                </div>
+            </div>
+
 	
 
 
