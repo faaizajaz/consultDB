@@ -10,9 +10,27 @@ Search results
 {% endblock %}
 
 {% block content %}
-	{% for consultant in result %}
-		<p>{{consultant.first_name}} {{consultant.last_name}}</p>
-		<p><a href="{% url 'consultant-view' consultant_id=consultant.id %}">Go to consultant</a></p>
-	{% endfor %}
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Experience (years)</th>
+				<th scope="col">Prior engagement?</th>
+				<th scope="col">Review</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for consultant in result %}
+				<tr>
+					<td><a href="{% url 'consultant-view' consultant_id=consultant.id %}">{{consultant.first_name}} {{consultant.last_name}}</a></td>
+					<td>{{consultant.experience_years}}</td>
+					<td>{{consultant.previous_engagement}}</td>
+					<td><a href="{% url 'rate-consultant-view' consultant_id=consultant.id %}">Add a review</a></td>
+
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 	
 {% endblock %}
