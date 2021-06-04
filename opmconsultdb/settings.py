@@ -81,39 +81,35 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 
-
-##########################################CHANGE FOR DEPLOY##########################################
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/storage'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+##########################################CHANGE FOR DEPLOY##########################################
+
+# MEDIA_ROOT = '/storage'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
-# DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
-#        'NAME': 'opmconsultdb_dev',
-#        'USER': 'faaiz',
-#        'PASSWORD': 'apassword',
-#        'HOST': '',
-#        'PORT': '',  # this seems to be default that the server wants
-#    }  # noqa: E122
-# }
-
-# FOR DEPLOYMENT
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',  # noqa: E121
+       'NAME': 'opmconsultdb_dev',
+       'USER': 'faaiz',
+       'PASSWORD': 'apassword',
+       'HOST': '',
+       'PORT': '',  # this seems to be default that the server wants
+   }  # noqa: E122
 }
 
-
-
-
+# FOR DEPLOYMENT
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
