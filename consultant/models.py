@@ -19,6 +19,7 @@ class Consultant(models.Model):
     skills = models.ManyToManyField(Skill, blank=True)
     cv_file = models.FileField(blank=True, null=True)
     day_rate = models.IntegerField(verbose_name="Daily rate in PKR")
+    email = models.EmailField(verbose_name="Consultant's email address", blank=True, null=True)
 
     #####################
     # Computed fields
