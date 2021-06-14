@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title%}
+	Support ticket
+{% endblock %}
+
+{% block page_heading %}
+Open a support ticket
+{% endblock %}
+
+{% block content %}
+		<form method = "POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<div>
+			<button class="btn btn-primary" type="Submit">
+				Search
+			</button>
+		</div>
+	</form>
+{% endblock %}
