@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import query.views as QueryViews
+import ticket.views as TicketViews
 import rating.views as RatingViews
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
@@ -28,5 +29,6 @@ urlpatterns = [
     path('consultant/', include('consultant.urls')),
     path('ratingsearch/', RatingViews.RatingSearchView, name='rating-search'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name="login"),
+    path('add_ticket/', TicketViews.AddTicketView, name='add-ticket')
 
 ]
