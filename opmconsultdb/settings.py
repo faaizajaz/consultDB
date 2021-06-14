@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rating.apps.RatingConfig',
     'expertise.apps.ExpertiseConfig',
     'query.apps.QueryConfig',
+    'ticket.apps.TicketConfig',
     'rest_framework',
     'crispy_forms',
     'gunicorn',
