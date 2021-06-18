@@ -14,11 +14,12 @@ class BioForm(forms.ModelForm):
     experience_years = forms.IntegerField(required=True, label="Total years of experience")
     day_rate = forms.IntegerField(required=True, label="Daily rate in PKR")
     email = forms.EmailField(required=False, label="Consultant's email address")
+    previous_engagement = forms.BooleanField(required=True, label='Previous engagement? Check for \'yes\'')
 
     class Meta:
 
         model = Consultant
-        fields = ['first_name', 'last_name', 'experience_years', 'day_rate']
+        fields = ['first_name', 'last_name', 'experience_years', 'day_rate', 'email', 'previous_engagement']
 
 class PracticeAreaForm(forms.ModelForm):
     """
@@ -45,7 +46,8 @@ class SpecializationForm(forms.ModelForm):
         # This queryset is replaced in the constructor override below
         queryset=Specialization.objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        choices_groupby='practice_area'
+        choices_groupby='practice_area',
+        required=False
     )
 
     class Meta:
