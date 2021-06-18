@@ -9,5 +9,7 @@ urlpatterns = [
     path('<consultant_id>/sp/', views.SpecializationFormView, name='specialization-view'),
     path('<consultant_id>/sk/', views.SkillFormView, name='skill-view'),
     path('<consultant_id>/cv/', views.CVFormView, name='cv-view'),
-    path('<consultant_id>/rate/', RatingViews.RateConsultantView, name='rate-consultant-view')
+    path('<consultant_id>/rate/', RatingViews.RateConsultantView, name='rate-consultant-view'),
+    path('<consultant_id>/edit/', views.EditView, name='edit-view'),
+    path('<consultant_id>/editspec', views.EditViewSpec, name='edit-view-spec')
 ]

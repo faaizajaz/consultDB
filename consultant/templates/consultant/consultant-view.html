@@ -7,7 +7,7 @@
 
 
 {% block page_heading %}
-{{consultant.first_name}} {{consultant.last_name}}
+{{consultant.first_name}} {{consultant.last_name}} <a href="{% url 'edit-view' consultant_id=consultant.id %}"><span class="h6">edit</span></a>
 {% endblock %}
 
 {% block content %}
@@ -82,8 +82,14 @@
                         <div class="col-md-12">
                         	<hr>
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Available CV files</h5>
-                            {% if consultant.cv_file %}
-								<h6><a href="{{ consultant.cv_file.url }}">Download CV</a></h6>
+                            {% if consultant.cv_file_1 %}
+								<h6><a href="{{ consultant.cv_file_1.url }}">Download CV</a></h6>
+							{% endif %}
+							{% if consultant.cv_file_2 %}
+								<h6><a href="{{ consultant.cv_file_2.url }}">Download CV</a></h6>
+							{% endif %}
+							{% if consultant.cv_file_3 %}
+								<h6><a href="{{ consultant.cv_file_3.url }}">Download CV</a></h6>
 							{% endif %}
 
                             

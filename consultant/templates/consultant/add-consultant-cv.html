@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+	<h5>Please upload the most recent CV here. You may upload into any of the slots below, but it is best to stick with the first one for the sake of consistency.</h5>
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form|crispy }}

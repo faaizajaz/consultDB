@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Consultant
 from django.shortcuts import get_object_or_404
-from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm
+from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm, EditForm
 from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -78,4 +78,32 @@ def CVFormView(request, **kwargs):
     return render(request, 'consultant/add-consultant-cv.html', {'form': form, 'consultant': consultant})
 
 
+@login_required
+def EditView(request, **kwargs):
+    consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+    if request.method == 'POST':
+        form = EditForm(request.POST, instance=consultant)
 
+        if form.is_valid():
+            form.save()
+
+            return redirect('edit-view-spec', consultant_id=consultant.id)
+    else:
+        form = EditForm(instance=consultant)
+    return render(request, 'consultant/edit.html', {'form': form, 'consultant': consultant})
+
+@login_required
+def EditViewSpec(request, **kwargs):
+    consultant = Consultant.objects.get(id=kwargs['consultant_id'])
+    consultant_practice_areas = consultant.practice_areas.all()
+    if request.method == 'POST':
+        form = SpecializationForm(consultant_practice_areas, request.POST, instance=consultant)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('consultant-view', consultant_id=consultant.id)
+
+    else:
+        form = SpecializationForm(consultant_practice_areas, instance=consultant)
+    return render(request, 'consultant/editspec.html', {'form': form, 'consultant': consultant})

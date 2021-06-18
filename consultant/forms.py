@@ -14,7 +14,7 @@ class BioForm(forms.ModelForm):
     experience_years = forms.IntegerField(required=True, label="Total years of experience")
     day_rate = forms.IntegerField(required=True, label="Daily rate in PKR")
     email = forms.EmailField(required=False, label="Consultant's email address")
-    previous_engagement = forms.BooleanField(required=True, label='Previous engagement? Check for \'yes\'')
+    previous_engagement = forms.BooleanField(required=False, label='Previous engagement? Check for \'yes\'')
 
     class Meta:
 
@@ -84,6 +84,14 @@ class CVForm(forms.ModelForm):
     """
     class Meta:
         model = Consultant
-        fields = ['cv_file']
+        fields = ['cv_file_1', 'cv_file_2', 'cv_file_3']
 
+
+class EditForm(forms.ModelForm):
+    """
+    Description:    Edit the entire consultant at once except for specializations
+    """
+    class Meta:
+        model = Consultant
+        exclude = ['date_created', 'date_updated', 'form_complete', 'query_score', 'specializations']
 
