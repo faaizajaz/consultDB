@@ -17,7 +17,9 @@ class Consultant(models.Model):
     practice_areas = models.ManyToManyField(PracticeArea, blank=True)
     specializations = models.ManyToManyField(Specialization, blank=True)
     skills = models.ManyToManyField(Skill, blank=True)
-    cv_file = models.FileField(blank=True, null=True)
+    cv_file_1 = models.FileField(blank=True, null=True, verbose_name="CV slot 1")
+    cv_file_2 = models.FileField(blank=True, null=True, verbose_name="CV slot 2")
+    cv_file_3 = models.FileField(blank=True, null=True, verbose_name="CV slot 3")
     day_rate = models.IntegerField(verbose_name="Daily rate in PKR")
     email = models.EmailField(verbose_name="Consultant's email address", blank=True, null=True)
 
