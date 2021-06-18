@@ -4,6 +4,8 @@ from consultant.models import Consultant
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import TrigramSimilarity
 
+
+# TODO: This no longer belongs here, as it is now a simple fuzzy name search. Should be moved to the Query views.
 @login_required
 def RatingSearchView(request):
 
