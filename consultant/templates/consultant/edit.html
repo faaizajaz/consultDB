@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title%}
+	Edit consultant information
+{% endblock %}
+
+{% block page_heading %}
+Edit a consultant
+{% endblock %}
+
+{% block content %}
+	<form method = "POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<div>
+			<button class="btn btn-primary" type="Submit">
+				Save
+			</button>
+		</div>
+	</form>
+
+
+{% endblock %}
