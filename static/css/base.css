@@ -136,3 +136,9 @@ ul[id^="id_specializations_"] {
 #id_specializations > li
 
 */
+
+.btn-custom {
+  color: #fff;
+  background-color: #0b1f51;
+  border-color: #0b1f51;
+}
