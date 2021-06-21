@@ -36,7 +36,7 @@ class Specialization(models.Model):
     objects = SpecializationManager()
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.practice_area} - {self.name}'
 
     def natural_key(self):
         return(self.name)
