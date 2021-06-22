@@ -47,7 +47,8 @@ class SpecializationForm(forms.ModelForm):
         queryset=Specialization.objects.all(),
         widget=forms.CheckboxSelectMultiple,
         choices_groupby='practice_area',
-        required=False
+        required=False,
+        label=""
     )
 
     class Meta:
