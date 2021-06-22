@@ -80,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 WSGI_APPLICATION = 'opmconsultdb.wsgi.application'
 
 MEDIA_URL = '/media/'
