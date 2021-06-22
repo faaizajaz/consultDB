@@ -10,7 +10,8 @@ Search by name
 {% endblock %}
 
 {% block content %}
-		<form method = "POST">
+	<p class="text-muted italic"><i>Use this form to find a consultant using their name. You can enter the first name, last name, or both. Searching is fuzzy so misspelled names will still return the closest matching results, e.g. a search for "Yasir Ahmad" will also match a consultant named "Yaser Ahmed".</i></p>
+	<form method = "POST">
 		{% csrf_token %}
 		{{ form|crispy }}
 		<div>

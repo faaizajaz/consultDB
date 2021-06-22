@@ -36,3 +36,9 @@ class GroupedModelMultipleChoiceField(ModelMultipleChoiceField):
             raise TypeError('choices_groupby must either be a str or a callable with single arg')
         self.iterator = partial(GroupedModelChoiceIterator, groupby=choices_groupby)
         super().__init__(*args, **kwargs)
+
+    # So that the field labels don't include practice area (I want PA names
+    # for admin panel so its easy to see where a specialization belongs without
+    # clicking into it)
+    def label_from_instance(self, obj):
+        return obj.name

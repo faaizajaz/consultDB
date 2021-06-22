@@ -10,7 +10,8 @@ Search by expertise
 {% endblock %}
 
 {% block content %}
-		<form method = "POST">
+	<p class="text-muted italic"><i>Use this form to find a consultant based on expertise. You can select practice areas and skills (optional) on this page. If you would like to add specializations within each practice area to your search, click the "add specializations" button. If you only want to search based on the broad practice areas listed here and do not care about specializations, you can click the "search" button to see your results.</i></p>
+	<form method = "POST">
 		{% csrf_token %}
 		{{ form }}
 		<div>

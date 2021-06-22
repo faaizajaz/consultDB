@@ -6,10 +6,11 @@
 {% endblock %}
 
 {% block page_heading %}
-{{consultant.first_name}} {{consultant.last_name}} - select skills
+(4/5) {{consultant.first_name}} {{consultant.last_name}} - select skills
 {% endblock %}
 
 {% block content %}
+<p class="text-muted italic"><i>Select the relevant skills below, then click next.</i></p>
 	<form method = "POST">
 		{% csrf_token %}
 		{{ form|crispy }}

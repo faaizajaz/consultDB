@@ -62,7 +62,7 @@ body {
  */
 
  .navbar-custom {
-    background-color: #0b1f51;
+    background-color: #00214e;
 }
 
 .login-button {
@@ -130,7 +130,6 @@ ul[id^="id_specializations_"] {
   columns: 4;
 }
 
-
 /*[@id="id_specializations"]/li[1]
 #id_specializations > li
 #id_specializations > li
@@ -139,6 +138,30 @@ ul[id^="id_specializations_"] {
 
 .btn-custom {
   color: #fff;
-  background-color: #0b1f51;
-  border-color: #0b1f51;
+  background-color: #00214e;
+  border-color: #00214e;
+}
+
+.btn-custom:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.badge-custom {
+    color: #fff;
+    background-color: #00214e;
+}
+
+.badge-custom:hover {
+    color: #fff;
+    background-color: #00214e;
+}
+
+a {
+  color: #dc3545;
+}
+
+.btn-help-custom {
+    color: #dc3545;
+    border-color: #dc3545;
 }
