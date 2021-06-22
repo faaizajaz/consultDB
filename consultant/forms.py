@@ -11,9 +11,9 @@ class BioForm(forms.ModelForm):
     """
     first_name = forms.CharField(required=True, max_length=500)
     last_name = forms.CharField(required=True, max_length=500)
-    experience_years = forms.IntegerField(required=True, label="Total years of experience")
-    day_rate = forms.IntegerField(required=True, label="Daily rate in PKR")
-    email = forms.EmailField(required=False, label="Consultant's email address")
+    experience_years = forms.IntegerField(required=False, label="Total years of experience")
+    day_rate = forms.IntegerField(required=False, label="Daily rate in PKR")
+    email = forms.EmailField(required=True, label="Consultant's email address")
     previous_engagement = forms.BooleanField(required=False, label='Previous engagement? Check for \'yes\'')
 
     class Meta:
