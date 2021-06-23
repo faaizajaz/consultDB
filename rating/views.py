@@ -19,13 +19,12 @@ def RatingSearchView(request):
             search_term = data.get('first_name')            
             result = Consultant.objects.annotate(similarity=TrigramSimilarity('first_name', search_term) + TrigramSimilarity('last_name', search_term),).filter(similarity__gt=0.3).order_by('-similarity')
 
-
-
             return render(request, 'rating/rating_search_results.html', {'result': result})
     else:
         form = RatingSearchForm()
 
     return render(request, 'rating/rating_consultant_search.html', {'form': form})
+
 
 @login_required
 def RateConsultantView(request, **kwargs):
@@ -35,8 +34,6 @@ def RateConsultantView(request, **kwargs):
         form = RateConsultantForm(request.POST)
 
         if form.is_valid():
-            # data = form.cleaned_data
-
             new_rating = form.save(commit=False)
 
             new_rating.consultant = consultant
@@ -56,4 +53,3 @@ def RateConsultantView(request, **kwargs):
         form = RateConsultantForm()
 
     return render(request, 'consultant/rate-consultant.html', {'form': form, 'consultant': consultant})
-
