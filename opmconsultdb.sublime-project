@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "."
+			"path": ".",
 		}
 	],
 	"settings":
@@ -11,23 +11,23 @@
 		{
 			"lsp-css":
 			{
-				"enabled": true
+				"enabled": true,
 			},
 			"lsp-html":
 			{
-				"enabled": false
+				"enabled": false,
 			},
 			"lsp-pyright":
 			{
-				"enabled": true,
+				"enabled": false,
 				"settings":
 				{
-					"python.pythonPath": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python"
-				}
+					"python.pythonPath": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python",
+				},
 			},
 			"mspyls":
 			{
-				"enabled": true,
+				"enabled": false,
 				"initializationOptions":
 				{
 					"interpreter":
@@ -36,11 +36,11 @@
 						{
 							"InterpreterPath": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python",
 							"UseDefaultDatabase": true,
-							"Version": "3.8.5"
-						}
-					}
-				}
-			}
+							"Version": "3.8.5",
+						},
+					},
+				},
+			},
 		},
 		"SublimeLinter.linters.pylint.args":
 		[
@@ -50,6 +50,6 @@
 		"debug.configurations":
 		[
 		],
-		"python_interpreter": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python"
-	}
+		"python_interpreter": "/home/faaiz/.virtualenvs/opmconsultdb/bin/python",
+	},
 }
