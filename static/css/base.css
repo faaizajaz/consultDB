@@ -161,7 +161,20 @@ a {
   color: #dc3545;
 }
 
+a:hover {
+  color: #00214e;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #00214e;
+}
+
 .btn-help-custom {
     color: #dc3545;
     border-color: #dc3545;
+}
+
+.btn-help-custom:hover {
+    text-decoration: underline;
 }
