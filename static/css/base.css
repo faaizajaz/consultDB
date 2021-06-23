@@ -177,4 +177,5 @@ a:active {
 
 .btn-help-custom:hover {
     text-decoration: underline;
+    color: #dc3545;
 }
