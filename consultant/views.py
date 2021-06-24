@@ -82,7 +82,7 @@ def CVFormView(request, **kwargs):
 def EditView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=consultant)
+        form = EditForm(request.POST, request.FILES, instance=consultant)
 
         if form.is_valid():
             form.save()
