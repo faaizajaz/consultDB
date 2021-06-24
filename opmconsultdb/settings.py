@@ -95,6 +95,7 @@ MEDIA_ROOT = '/storage'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SECURITY WARNING: don't run with debug turned on in production!
+MAX_UPLOAD_SIZE = 5242880
 DEBUG = False
 # DEBUG = True
 
