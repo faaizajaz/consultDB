@@ -103,7 +103,7 @@
 							<li><b>{{pa}}</b></li>
 							<ul>
 								{% for specialization in consultant|specialization_display:pa.specialization_set.all %}
-									<li>{{specialization}}</li>
+									<li>{{specialization.name}}</li>
 
 		  						{% endfor %}
 		  					</ul>
