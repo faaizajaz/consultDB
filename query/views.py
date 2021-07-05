@@ -5,6 +5,7 @@ from consultant.models import Consultant
 from .models import ConsultantQuery
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def ConsultantQueryView(request):
 
@@ -18,7 +19,6 @@ def ConsultantQueryView(request):
                 query = Q()
                 num_parameters = 0
 
-
                 if data.get('practice_areas'):
                     for practice_area in data.get('practice_areas'):
                         query.add(Q(practice_areas=practice_area), Q.OR)
@@ -31,31 +31,34 @@ def ConsultantQueryView(request):
 
                 result = Consultant.objects.filter(query).distinct()
 
-
                 for consultant in result:
                     consultant.query_score = 0
                     temp_query_score = 0
                     for practice_area in data.get('practice_areas'):
                         if practice_area in consultant.practice_areas.all():
-                            #consultant.query_score += 1
+                            # consultant.query_score += 1
                             temp_query_score += 1
                     for skill in data.get('skills'):
                         if skill in consultant.skills.all():
                             temp_query_score += 1
-                            #consultant.query_score += 1
+                            # consultant.query_score += 1
 
                     if num_parameters != 0:
-                        consultant.query_score = (temp_query_score / num_parameters) * 100
+                        consultant.query_score = (
+                            temp_query_score / num_parameters
+                        ) * 100
                     else:
                         consultant.query_score = 100
 
                     consultant.save()
 
-                
+                return render(
+                    request,
+                    'query/results.html',
+                    {'result': result.order_by('-query_score')},
+                )
 
-                return render(request, 'query/results.html', {'result': result.order_by('-query_score')})
-
-        # If the add specializations button is clicked, pass the current PA and skills data to 
+        # If the add specializations button is clicked, pass the current PA and skills data to
         # specialization form
         if 'add-specializations' in request.POST:
             form = ConsultantQueryForm(request.POST)
@@ -70,18 +73,21 @@ def ConsultantQueryView(request):
 
     return render(request, 'query/consultant_search.html', {'form': form})
 
+
 @login_required
 def SpecializationQueryView(request, **kwargs):
     new_query = ConsultantQuery.objects.get(id=kwargs['query_id'])
     query_practice_areas = new_query.practice_areas.all()
     if request.method == 'POST':
-        form = SpecializationQueryForm(query_practice_areas, request.POST, instance=new_query)
+        form = SpecializationQueryForm(
+            query_practice_areas, request.POST, instance=new_query
+        )
         if form.is_valid():
             data = form.cleaned_data
             query = Q()
 
             num_parameters = 0
-            
+
             # Don't really need to do this for practice areas if specializations are selected.
             #
             # if new_query.practice_areas:
@@ -118,8 +124,11 @@ def SpecializationQueryView(request, **kwargs):
 
                 consultant.save()
 
-
-            return render(request, 'query/results.html', {'result': result.order_by('-query_score')})
+            return render(
+                request,
+                'query/results.html',
+                {'result': result.order_by('-query_score')},
+            )
 
     else:
         form = SpecializationQueryForm(query_practice_areas, instance=new_query)
