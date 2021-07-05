@@ -2,10 +2,18 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Consultant
 from django.shortcuts import get_object_or_404
-from .forms import BioForm, PracticeAreaForm, SpecializationForm, SkillForm, CVForm, EditForm
+from .forms import (
+    BioForm,
+    PracticeAreaForm,
+    SpecializationForm,
+    SkillForm,
+    CVForm,
+    EditForm,
+)
 from django import forms
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+
 
 class ConsultantView(LoginRequiredMixin, generic.DetailView):
     template_name = 'consultant/consultant-view.html'
@@ -14,9 +22,10 @@ class ConsultantView(LoginRequiredMixin, generic.DetailView):
     def get_object(self):
         return get_object_or_404(Consultant, pk=self.kwargs['consultant_id'])
 
+
 @login_required
 def BioFormView(request, **kwargs):
-
+    # TODO: Check to see if a consultant is already registered, using email address
     if request.method == 'POST':
         form = BioForm(request.POST)
         if form.is_valid():
@@ -25,6 +34,7 @@ def BioFormView(request, **kwargs):
     else:
         form = BioForm()
     return render(request, 'consultant/add-consultant.html', {'form': form})
+
 
 @login_required
 def PracticeAreaFormView(request, **kwargs):
@@ -36,20 +46,32 @@ def PracticeAreaFormView(request, **kwargs):
             return redirect('specialization-view', consultant_id=consultant.id)
     else:
         form = PracticeAreaForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-practice-area.html', {'form': form, 'consultant': consultant})
+    return render(
+        request,
+        'consultant/add-consultant-practice-area.html',
+        {'form': form, 'consultant': consultant},
+    )
+
 
 @login_required
 def SpecializationFormView(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     consultant_practice_areas = consultant.practice_areas.all()
     if request.method == 'POST':
-        form = SpecializationForm(consultant_practice_areas, request.POST, instance=consultant)
+        form = SpecializationForm(
+            consultant_practice_areas, request.POST, instance=consultant
+        )
         if form.is_valid():
             form.save()
             return redirect('skill-view', consultant_id=consultant.id)
     else:
         form = SpecializationForm(consultant_practice_areas, instance=consultant)
-    return render(request, 'consultant/add-consultant-specialization.html', {'form': form, 'consultant': consultant})
+    return render(
+        request,
+        'consultant/add-consultant-specialization.html',
+        {'form': form, 'consultant': consultant},
+    )
+
 
 @login_required
 def SkillFormView(request, **kwargs):
@@ -61,7 +83,12 @@ def SkillFormView(request, **kwargs):
             return redirect('cv-view', consultant_id=consultant.id)
     else:
         form = SkillForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-skill.html', {'form': form, 'consultant': consultant})
+    return render(
+        request,
+        'consultant/add-consultant-skill.html',
+        {'form': form, 'consultant': consultant},
+    )
+
 
 @login_required
 def CVFormView(request, **kwargs):
@@ -75,7 +102,11 @@ def CVFormView(request, **kwargs):
             return redirect('consultant-view', consultant_id=consultant.id)
     else:
         form = CVForm(instance=consultant)
-    return render(request, 'consultant/add-consultant-cv.html', {'form': form, 'consultant': consultant})
+    return render(
+        request,
+        'consultant/add-consultant-cv.html',
+        {'form': form, 'consultant': consultant},
+    )
 
 
 @login_required
@@ -90,14 +121,19 @@ def EditView(request, **kwargs):
             return redirect('edit-view-spec', consultant_id=consultant.id)
     else:
         form = EditForm(instance=consultant)
-    return render(request, 'consultant/edit.html', {'form': form, 'consultant': consultant})
+    return render(
+        request, 'consultant/edit.html', {'form': form, 'consultant': consultant}
+    )
+
 
 @login_required
 def EditViewSpec(request, **kwargs):
     consultant = Consultant.objects.get(id=kwargs['consultant_id'])
     consultant_practice_areas = consultant.practice_areas.all()
     if request.method == 'POST':
-        form = SpecializationForm(consultant_practice_areas, request.POST, instance=consultant)
+        form = SpecializationForm(
+            consultant_practice_areas, request.POST, instance=consultant
+        )
 
         if form.is_valid():
             form.save()
@@ -106,4 +142,6 @@ def EditViewSpec(request, **kwargs):
 
     else:
         form = SpecializationForm(consultant_practice_areas, instance=consultant)
-    return render(request, 'consultant/editspec.html', {'form': form, 'consultant': consultant})
+    return render(
+        request, 'consultant/editspec.html', {'form': form, 'consultant': consultant}
+    )
