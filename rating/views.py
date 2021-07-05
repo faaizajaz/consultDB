@@ -16,10 +16,19 @@ def RatingSearchView(request):
             data = form.cleaned_data
 
             # Yuck.
-            search_term = data.get('first_name')            
-            result = Consultant.objects.annotate(similarity=TrigramSimilarity('first_name', search_term) + TrigramSimilarity('last_name', search_term),).filter(similarity__gt=0.3).order_by('-similarity')
+            search_term = data.get('first_name')
+            result = (
+                Consultant.objects.annotate(
+                    similarity=TrigramSimilarity('first_name', search_term)
+                    + TrigramSimilarity('last_name', search_term)
+                )
+                .filter(similarity__gt=0.3)
+                .order_by('-similarity')
+            )
 
-            return render(request, 'rating/rating_search_results.html', {'result': result})
+            return render(
+                request, 'rating/rating_search_results.html', {'result': result}
+            )
     else:
         form = RatingSearchForm()
 
@@ -37,7 +46,7 @@ def RateConsultantView(request, **kwargs):
             new_rating = form.save(commit=False)
 
             new_rating.consultant = consultant
-            
+
             print("Current is:" + " " + str(new_rating.consultant.previous_engagement))
 
             if new_rating.consultant.previous_engagement is False:
@@ -52,4 +61,8 @@ def RateConsultantView(request, **kwargs):
     else:
         form = RateConsultantForm()
 
-    return render(request, 'consultant/rate-consultant.html', {'form': form, 'consultant': consultant})
+    return render(
+        request,
+        'consultant/rate-consultant.html',
+        {'form': form, 'consultant': consultant},
+    )
