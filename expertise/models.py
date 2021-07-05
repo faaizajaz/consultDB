@@ -2,9 +2,9 @@ from django.db import models
 
 
 class PracticeAreaManager(models.Manager):
-
     def get_by_natural_key(self, name):
         return self.get(name=name)
+
 
 class PracticeArea(models.Model):
     """
@@ -19,11 +19,13 @@ class PracticeArea(models.Model):
         return f'{self.name}'
 
     def natural_key(self):
-        return(self.name)
+        return self.name
+
 
 class SpecializationManager(models.Manager):
     def get_by_natural_key(self, name):
         return self.get(name=name)
+
 
 class Specialization(models.Model):
     """
@@ -39,12 +41,13 @@ class Specialization(models.Model):
         return f'{self.practice_area} - {self.name}'
 
     def natural_key(self):
-        return(self.name)
+        return self.name
+
 
 class SkillManager(models.Manager):
-
     def get_by_natural_key(self, name):
         return self.get(name=name)
+
 
 class Skill(models.Model):
     """
@@ -59,4 +62,4 @@ class Skill(models.Model):
         return f'{self.name}'
 
     def natural_key(self):
-        return(self.name)
+        return self.name
