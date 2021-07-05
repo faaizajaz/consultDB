@@ -41,6 +41,10 @@
 					},
 				},
 			},
+			"LSP-pylsp":
+			{
+				"enabled": false
+			},
 		},
 		"SublimeLinter.linters.pylint.args":
 		[
