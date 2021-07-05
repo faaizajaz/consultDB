@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-	<p class="text-muted italic"><i>Select the relevant practice areas below, then click next.</i></p>
+	<p class="text-muted italic"><i>Select the relevant practice areas below, then click next. You must select at least one practice area.</i></p>
 	<form method = "POST">
 		{% csrf_token %}
 		{{ form}}

@@ -10,6 +10,7 @@ Add a review for {{consultant.first_name}} {{consultant.last_name}}
 {% endblock %}
 
 {% block content %}
+	<p class="text-muted italic"><i>Add a review for {{consultant.first_name}} {{consultant.last_name}}. The rating scale is from 1-5, with 1 being "poor" and 5 being "excellent" </i></p>
 	<form method = "POST">
 		{% csrf_token %}
 		{{ form|crispy }}

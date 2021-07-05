@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-	<p class="text-muted italic"><i>Select the relevant specializations below, then click next.</i></p>
+	<p class="text-muted italic"><i>Select the relevant specializations below, then click next. These are optional--you may leave all blank if needed.</i></p>
 	<form method = "POST">
 		{% csrf_token %}
 		{{ form }}
