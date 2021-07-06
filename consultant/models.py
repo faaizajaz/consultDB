@@ -22,7 +22,7 @@ class Consultant(models.Model):
     cv_file_3 = models.FileField(blank=True, null=True, verbose_name="CV slot 3")
     day_rate = models.IntegerField(verbose_name="Daily rate in PKR")
     email = models.EmailField(
-        verbose_name="Consultant's email address", blank=True, null=True
+        verbose_name="Consultant's email address", blank=True, null=True, unique=True
     )
 
     #####################
