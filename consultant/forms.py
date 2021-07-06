@@ -16,7 +16,7 @@ class BioForm(forms.ModelForm):
         required=False, label="Total years of experience"
     )
     day_rate = forms.IntegerField(required=False, label="Daily rate in PKR")
-    email = forms.EmailField(required=True, label="Consultant's email address")
+    email = forms.EmailField(required=True, label="Email address")
     previous_engagement = forms.BooleanField(
         required=False, label='Previous engagement? Check for \'yes\''
     )
