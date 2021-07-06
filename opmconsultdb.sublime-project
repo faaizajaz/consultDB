@@ -43,6 +43,10 @@
 			},
 			"LSP-pylsp":
 			{
+				"enabled": false,
+			},
+			"LSP-pyright":
+			{
 				"enabled": false
 			},
 		},
