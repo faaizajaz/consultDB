@@ -88,10 +88,8 @@ def SpecializationQueryView(request, **kwargs):
 
             num_parameters = 0
 
-            # Don't really need to do this for practice areas if specializations are selected.
-            #
-            # if new_query.practice_areas:
-            #     print(type(new_query.practice_areas.all())) # This is a queryset phew
+            # TODO: If no specializations are matched, default to returning results based on practice areas
+            # TODO: Also return matches that have no specializations, but match the practice area
 
             if data.get('specializations'):
                 for specialization in data.get('specializations'):
