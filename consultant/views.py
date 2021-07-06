@@ -25,7 +25,6 @@ class ConsultantView(LoginRequiredMixin, generic.DetailView):
 
 @login_required
 def BioFormView(request, **kwargs):
-    # TODO: Check to see if a consultant is already registered, using email address
     if request.method == 'POST':
         form = BioForm(request.POST)
         if form.is_valid():
