@@ -83,13 +83,13 @@
                         	<hr>
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Available CV files</h5>
                             {% if consultant.cv_file_1 %}
-								<h6><a href="{{ consultant.cv_file_1.url }}">Download: {{consultant.cv_file_1.filename}}</a></h6>
+								<h6><a href="{{ consultant.cv_file_1.url }}">{{ consultant.cv_file_1.name }}</a></h6>
 							{% endif %}
 							{% if consultant.cv_file_2 %}
-								<h6><a href="{{ consultant.cv_file_2.url }}">Download: {{consultant.cv_file_2.filename}}</a></h6>
+								<h6><a href="{{ consultant.cv_file_2.url }}">{{ consultant.cv_file_2.name }}</a></h6>
 							{% endif %}
 							{% if consultant.cv_file_3 %}
-								<h6><a href="{{ consultant.cv_file_3.url }}">Download: {{consultant.cv_file_3.filename}}</a></h6>
+								<h6><a href="{{ consultant.cv_file_3.url }}">{{ consultant.cv_file_3.name }}</a></h6>
 							{% endif %}
 
                             
