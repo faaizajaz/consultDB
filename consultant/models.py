@@ -13,14 +13,18 @@ class Consultant(models.Model):
 
     first_name = models.CharField(verbose_name="First name", max_length=500)
     last_name = models.CharField(verbose_name="Last name", max_length=500)
-    experience_years = models.IntegerField(verbose_name="Years of experience")
+    experience_years = models.IntegerField(
+        verbose_name="Years of experience", blank=True, null=True
+    )
     practice_areas = models.ManyToManyField(PracticeArea)
     specializations = models.ManyToManyField(Specialization, blank=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv_file_1 = models.FileField(blank=True, null=True, verbose_name="CV slot 1")
     cv_file_2 = models.FileField(blank=True, null=True, verbose_name="CV slot 2")
     cv_file_3 = models.FileField(blank=True, null=True, verbose_name="CV slot 3")
-    day_rate = models.IntegerField(verbose_name="Daily rate in PKR")
+    day_rate = models.IntegerField(
+        verbose_name="Daily rate in PKR", blank=True, null=True
+    )
     email = models.EmailField(
         verbose_name="Consultant's email address", blank=True, null=True, unique=True
     )
